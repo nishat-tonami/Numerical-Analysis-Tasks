@@ -1,0 +1,12 @@
+In the traditional bisection method,we manually choose an interval [a,b] where f(a)*f(b)<0.This approach is quite simple and fast as the interval is already known.In this method, we manually check if f(a) & f(b) has different signs.We manually put the values in the given function f(x) to know it.After finding two values with different signs in the f(x),we choose them as our a & b.We also use graphical analysis to choose the a & b.
+But this method is quite time consuming.And if not correctly checked, we might find f(a)*f(b)>0,meaning we choose the wrong range.
+
+A better approach to this method would be "Automated Range Detection".In this method, we automatically scan the function from start to end, using a small increase in every step, & detect the first interval where for [i,i+increase] we find, f(i)*f(i+increase)<0. Once found, it uses that interval in the bisection method.A potential problem with this incremental search is the choice of the increment length.If the length is too small,the search can be very time consuming.On the other hand, if the length is too great,there is a possibility that closely spaced roots might be missed.
+
+Now, we used an example here,f(x)=4*x*x+3*x−3.
+
+If we use the traditional method here,we find that the iteration results in 11 for range [0,10] with acceptable error=0.005.Here the approximate root is  0.571. 
+But if we use the better approach(incremental method) ,we find the root in 5 steps for interval [-1.4, -1.3].Here the approximate root is −1.316.
+As this function has two roots,we found the positive root for the first method & negative root for the second one.
+
+Here,Auto range detection optimizes the interval when a sign change is found early .We can see that for the given example.
