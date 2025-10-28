@@ -14,10 +14,12 @@ int main() {
             cin>>arr[i][j];
         }
     }
+
     for(ll j=1;j<=n;j++) {
+        double pivot=arr[j][j];
         for(ll i=1;i<=n;i++) {
             if(i!=j) {
-                double multiplier=arr[i][j]/arr[j][j];
+                double multiplier=arr[i][j]/pivot;
                 for(ll k=1;k<=n+1;k++) {
                     arr[i][k]-=multiplier*arr[j][k];
                 }

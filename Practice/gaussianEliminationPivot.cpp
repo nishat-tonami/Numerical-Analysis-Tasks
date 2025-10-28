@@ -6,8 +6,8 @@ using namespace std;
 int main() {
     ll n;
     cin>>n;
-    ll arr[n+2][n+2];
-    ll ans[n+2];
+    double arr[n+2][n+2];
+    double ans[n+2];
 
     for(ll i=1;i<=n;i++) {
         for(ll j=1;j<=n+1;j++) {
