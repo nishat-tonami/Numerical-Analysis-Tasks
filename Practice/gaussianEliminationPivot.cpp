@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+#define ll long long
+#define el '\n'
+using namespace std;
+
+int main() {
+    ll n;
+    cin>>n;
+    ll arr[n+2][n+2];
+    ll ans[n+2];
+
+    for(ll i=1;i<=n;i++) {
+        for(ll j=1;j<=n+1;j++) {
+            cin>>arr[i][j];
+        }
+    }
+
+    for(ll j=1;j<=n;j++) {
+        ll best=j;
+        for(ll i=j+1;i<=n;i++) {
+            if(arr[i][j]>arr[best][j]) best=i;
+        }
+        if(best!=j) {
+            for(ll k=1;k<=n+1;k++) {
+                swap(arr[j][k],arr[best][k]);
+            }
+        }
+        double pivot=arr[j][j];
+        for(ll i=1;i<=n;i++) {
+            if(i!=j) {
+                double multiplier=arr[i][j]/pivot;
+                for(ll k=1;k<=n+1;k++) {
+                    arr[i][k]-=multiplier*arr[j][k];
+                }
+            }
+        }
+    }
+    cout<<"Simplified Matrix : "<<el;
+    for(ll i=1;i<=n;i++){
+        for(ll j=1;j<=n+1;j++){
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<el;
+    }
+    cout<<"Ans is : "<<el;
+    for(ll i=1;i<=n;i++){
+       ans[i]=arr[i][n+1]/arr[i][i];
+       cout<<"X" <<i<<" = "<<ans[i]<<'\n';
+    }
+}
